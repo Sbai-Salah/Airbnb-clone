@@ -5,6 +5,7 @@ import Avatar from '../Avatar';
 import MenuItem from "./MenuItem";
 import { useCallback, useState } from "react";
 import router from "next/router";
+import useRegisterModal from '@/app/hooks/useRegisterModal'; // @/   <==> ../../
 
 
 const UserMenu = () => {
@@ -13,6 +14,9 @@ const UserMenu = () => {
     const toggleButton = useCallback(()=>{
         setIsOpen((value) => !value);
     }, []);
+
+    const registerModal = useRegisterModal();
+
     return (
 
         <div className="relative">
@@ -81,7 +85,7 @@ const UserMenu = () => {
                 />
                 <MenuItem 
                   label="Sign up" 
-                  onClick={()=> {}}
+                  onClick={registerModal.onOpen}
                 />
             </>
 
